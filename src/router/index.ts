@@ -1,13 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: HomeView
+      path:'/',
+      redirect:'/discovery'
+    },
+    {
+      path:'/discovery',
+      component:()=>import('@/components/content/discovery.vue')
+    },
+    {
+      path:'/latestMV',
+      component:()=>import('@/components/content/latest-mv.vue')
     }
   ]
 })

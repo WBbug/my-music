@@ -1,11 +1,15 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
-  <RouterView />
+    <Views />
+    <MiniPlayer />
 </template>
 
-<style scoped>
+<script setup lang="ts">
+import MiniPlayer from '@/components/mini-player/index.vue'
+import Views from '@/components/layout/index.vue'
+</script>
 
+<style lang="scss">
+body{
+  height: 100vh;
+}
 </style>
