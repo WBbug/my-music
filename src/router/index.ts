@@ -9,7 +9,7 @@ const router = createRouter({
     },
     {
       path:'/discovery',
-      component:()=>import('@/components/content/discovery.vue')
+      component:()=>import('@/components/content/discovery/index.vue')
     },
     {
       path:'/latestMV',
