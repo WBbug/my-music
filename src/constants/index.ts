@@ -1,1 +1,1 @@
-export const redColor = '#d33a31'
+export const RedColor = '#d33a31'

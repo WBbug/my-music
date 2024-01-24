@@ -1,6 +1,6 @@
 <template>
     <div class="menu-wrap">
-        <el-menu :active-text-color="redColor" default-active="0" class="el-menu-vertical-demo">
+        <el-menu :active-text-color="RedColor" default-active="0" class="el-menu-vertical-demo">
             <el-menu-item :index="index.toString()" :key="item.key" v-for="(item, index) in MemuList">
                 <el-icon>
                     <component :is="item.icon" class="icon"></component>
@@ -16,7 +16,7 @@ import { MemuList } from './menu-list'
 import {
     VideoPlay
 } from '@element-plus/icons-vue'
-import {redColor} from '@/constants/index'
+import {RedColor} from '@/constants/index'
 
 let msg = ref('menu')
 </script>

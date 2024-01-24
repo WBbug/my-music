@@ -14,7 +14,11 @@ const router = createRouter({
     {
       path:'/latestMV',
       component:()=>import('@/components/content/latest-mv.vue')
-    }
+    },
+    {
+      path: '/playlist/:id',
+      component:()=>import('@/components/content/playlist-detail/index.vue'),
+    },
   ]
 })
 

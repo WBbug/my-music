@@ -8,6 +8,9 @@
                 </div>
                 <div class="img-wrap mr-10px h-64px">
                     <img style="width: 64px;" :src="song.picUrl" />
+                    <el-icon class="play-icon" size="32" :color="RedColor">
+                        <CaretRight />
+                    </el-icon>
                 </div>
                 <div class="song-content flex flex-col justify-around">
                     <div class="song-name">{{ song.name }}</div>
@@ -21,23 +24,42 @@
 import { ref } from "vue";
 import { onMounted } from 'vue'
 import { getNewSongs } from '@/api'
+import { RedColor } from '@/constants/index'
 
 let songs = ref([])
 
 onMounted(async () => {
     const response = await getNewSongs()
     songs.value = response.data.result
-    console.log(songs);
 })
 
 </script>
 <style lang="scss" scoped>
-.songs{
+.songs {
     font-size: 14px;
-    .song-card{
+
+    .song-card {
         &:hover {
-    background: $light-bgcolor;
-  } cursor: pointer;
+            background: $light-bgcolor;
+            .img-wrap .play-icon {
+                opacity: 1;
+                z-index: 100;
+            }
+        }
+
+        .img-wrap {
+            position: relative;
+
+            .play-icon {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 0;
+            }
+        }
+
+
+        cursor: pointer;
     }
-}
-</style>
+}</style>
