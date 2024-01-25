@@ -5,7 +5,7 @@
                 <el-icon>
                     <component :is="item.icon" class="icon"></component>
                 </el-icon>
-                <router-link style="color: inherit; text-decoration: none;" :to="item.key">{{ item.name }}</router-link>
+                <router-link style="color: inherit; text-decoration: none;" :to="`/${item.key}`">{{ item.name }}</router-link>
             </el-menu-item>
         </el-menu>
     </div>
