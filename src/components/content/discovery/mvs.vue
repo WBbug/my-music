@@ -28,7 +28,7 @@ import { ref, onMounted } from "vue";
 import { getPersonalizedMv } from '@/api'
 import { formatNumber } from '@/utils'
 import { RedColor } from '@/constants/index'
-
+import { CaretRight } from '@element-plus/icons-vue'
 
 let list = ref([])
 

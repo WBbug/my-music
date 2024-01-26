@@ -20,6 +20,8 @@ import { onMounted } from 'vue'
 import { getPersonalized } from '@/api'
 import { RedColor } from '@/constants/index'
 import { useRouter } from 'vue-router'
+import { CaretRight } from '@element-plus/icons-vue'
+
 
 let list = ref([])
 const route = useRouter()

@@ -25,6 +25,8 @@ import { ref } from "vue";
 import { onMounted } from 'vue'
 import { getNewSongs } from '@/api'
 import { RedColor } from '@/constants/index'
+import { CaretRight } from '@element-plus/icons-vue'
+
 
 let songs = ref([])
 

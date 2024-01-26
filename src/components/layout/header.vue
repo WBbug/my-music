@@ -18,6 +18,8 @@
 <script  setup>
 import { ref } from "vue";
 import Search from '@/components/common/search.vue'
+import { ArrowRight, ArrowLeft } from '@element-plus/icons-vue'
+
 
 let msg = ref('header')
 </script>
