@@ -26,9 +26,9 @@
                 <li :class="{ active: activeTab === index }" class="tab mr-24px py-12px" :key="index"
                     v-for=" (tab, index) in tabs" @click="clickHandle(index)">{{ tab }}</li>
             </ul>
-            <Search v-if="activeTab ===0" @searchHandle='searchHandle' placeholder="搜索歌单音乐" />
+            <Search v-if="activeTab === 0" @searchHandle='searchHandle' placeholder="搜索歌单音乐" />
         </div>
-        <el-table v-if="activeTab === 0" class="songs-table" :data="showSongs" style="width: 100%">
+        <el-table @row-click='addSong' v-if="activeTab === 0" class="songs-table" :data="showSongs" style="width: 100%">
             <el-table-column type="index" width="50" />
             <el-table-column prop="img" width="90">
                 <template #default="scope">
@@ -53,6 +53,7 @@ import { createSong, formatDate } from '@/utils'
 import { RedColor } from '@/constants/index'
 import Search from '@/components/common/search.vue'
 import Comments from './comments.vue'
+import { useStore } from '@/stores/music'
 
 const route = useRouter()
 const activeTab = ref(0)
@@ -60,6 +61,7 @@ const listDetail = ref({})
 const songs = ref([])
 const showSongs = ref([])
 const tabs = ref(["歌曲列表"])
+const musicStore = useStore()
 
 
 onMounted(async () => {
@@ -100,6 +102,11 @@ function formatTag(tags = []) {
 
 function searchHandle(text) {
     showSongs.value = songs.value.filter(item => item.name.includes(text) || item.albumName.includes(text) || item.artistsText.includes(text))
+}
+
+function addSong(row) {
+    musicStore.addSongs(row)
+    musicStore.setCurrentSong(row)
 }
 
 </script>
